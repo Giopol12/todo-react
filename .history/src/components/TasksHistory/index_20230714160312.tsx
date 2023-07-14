@@ -27,8 +27,6 @@ export function TasksHistory({
   const numOfTasksDone = tasks.reduce((acc, task) => {
     if (task.done) {
       return acc + 1
-    } else {
-      return acc
     }
   }, 0)
   return (

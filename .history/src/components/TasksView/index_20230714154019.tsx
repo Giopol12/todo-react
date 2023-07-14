@@ -13,17 +13,7 @@ export function TasksView() {
     setTasks(newTasksList)
   }
   function doneTask(taskId: number) {
-    const updatedTasks = [...tasks]
-    const indexToUpdate = tasks.findIndex((task) => task.id === taskId)
-    if (indexToUpdate !== -1) {
-      const updatedTask = { ...updatedTasks[indexToUpdate] }
-
-      updatedTask.done = !updatedTask.done
-
-      updatedTasks[indexToUpdate] = updatedTask
-
-      setTasks(updatedTasks)
-    }
+    setTasks((state) => [...state])
   }
   return (
     <TasksContainer>

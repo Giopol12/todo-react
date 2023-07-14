@@ -12,51 +12,28 @@ import { useEffect } from 'react'
 
 interface TasksHistoryProps {
   tasks: TaskType[]
-  removeTask: (taksId: number) => void
-  doneTask: (taksId: number) => void
 }
 
-export function TasksHistory({
-  tasks,
-  removeTask,
-  doneTask,
-}: TasksHistoryProps) {
+export function TasksHistory({ tasks }: TasksHistoryProps) {
   useEffect(() => {
     console.log(tasks)
   }, [tasks])
-  const numOfTasksDone = tasks.reduce((acc, task) => {
-    if (task.done) {
-      return acc + 1
-    } else {
-      return acc
-    }
-  }, 0)
   return (
     <TasksHistoryContainer>
       <TasksCounterContainer>
         <TasksCreated>
           <p>
-            Tarefas criadas <span>{tasks.length}</span>
+            Tarefas criadas <span>0</span>
           </p>
         </TasksCreated>
         <TasksDone>
           <p>
-            Concluidas{' '}
-            <span>
-              {numOfTasksDone} de {tasks.length}
-            </span>
+            Concluidas <span>0</span>
           </p>
         </TasksDone>
       </TasksCounterContainer>
-      {tasks.length !== 0 ? (
-        tasks.map((task) => (
-          <Task
-            key={task.id}
-            task={task}
-            removeTask={removeTask}
-            doneTask={doneTask}
-          />
-        ))
+      {!tasks ? (
+        tasks.map((task) => <Task key={task.id} />)
       ) : (
         <div>
           <WithoutTasksContainer>

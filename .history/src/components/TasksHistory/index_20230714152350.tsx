@@ -12,8 +12,8 @@ import { useEffect } from 'react'
 
 interface TasksHistoryProps {
   tasks: TaskType[]
-  removeTask: (taksId: number) => void
-  doneTask: (taksId: number) => void
+  removeTask: (taks: TaskType) => void
+  doneTask: (taks: TaskType) => void
 }
 
 export function TasksHistory({
@@ -24,13 +24,7 @@ export function TasksHistory({
   useEffect(() => {
     console.log(tasks)
   }, [tasks])
-  const numOfTasksDone = tasks.reduce((acc, task) => {
-    if (task.done) {
-      return acc + 1
-    } else {
-      return acc
-    }
-  }, 0)
+
   return (
     <TasksHistoryContainer>
       <TasksCounterContainer>
@@ -43,7 +37,7 @@ export function TasksHistory({
           <p>
             Concluidas{' '}
             <span>
-              {numOfTasksDone} de {tasks.length}
+              {0} de {tasks.length}
             </span>
           </p>
         </TasksDone>

@@ -20,7 +20,7 @@ export function Task({ task, removeTask, doneTask }: TaskProps) {
   }
 
   return (
-    <TaskContainer isDone={task.done}>
+    <TaskContainer>
       <div>
         <DoneButton isDone={task.done} onClick={handleToggleDone}>
           {task.done ? <Check size={12} /> : ''}

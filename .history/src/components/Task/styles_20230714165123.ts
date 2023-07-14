@@ -1,19 +1,17 @@
 import styled from 'styled-components'
 
-interface DoneProps {
+interface DoneButtonProps {
   isDone: boolean
 }
 
-export const TaskContainer = styled.div<DoneProps>`
+export const TaskContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   padding: 1rem;
   border-radius: 8px;
   border: ${(props) =>
-    props.isDone === true
-      ? `1px solid ${props.theme['gray-400']}`
-      : `1px solid ${props.theme['gray-500']}`};
+    props.isDone === true ? '' : `1px solid ${props.theme['gray-400']}}`};
 
   text-decoration: ${(props) => (props.isDone === true ? 'line-through' : ' ')};
 
@@ -51,7 +49,7 @@ export const TrashButton = styled.button`
     transition: all 0.1;
   }
 `
-export const DoneButton = styled.button<DoneProps>`
+export const DoneButton = styled.button<DoneButtonProps>`
   box-sizing: border-box;
   width: 1.25rem;
   height: 1.25rem;

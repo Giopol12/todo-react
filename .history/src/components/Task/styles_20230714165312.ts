@@ -13,7 +13,7 @@ export const TaskContainer = styled.div<DoneProps>`
   border: ${(props) =>
     props.isDone === true
       ? `1px solid ${props.theme['gray-400']}`
-      : `1px solid ${props.theme['gray-500']}`};
+      : `1px solid ${props.theme['gray-400']}`};
 
   text-decoration: ${(props) => (props.isDone === true ? 'line-through' : ' ')};
 

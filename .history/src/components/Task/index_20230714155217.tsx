@@ -20,15 +20,14 @@ export function Task({ task, removeTask, doneTask }: TaskProps) {
   }
 
   return (
-    <TaskContainer isDone={task.done}>
+    <TaskContainer>
       <div>
-        <DoneButton isDone={task.done} onClick={handleToggleDone}>
-          {task.done ? <Check size={12} /> : ''}
-        </DoneButton>
+        <DoneButton onClick={handleToggleDone}></DoneButton>
+        {task.done === true ?? <Check size={24} color="#6f5681" />}
         <p>{task.content}</p>
       </div>
       <TrashButton onClick={handleRemoveTask}>
-        <Trash size={18} />
+        <Trash size={20} />
       </TrashButton>
     </TaskContainer>
   )

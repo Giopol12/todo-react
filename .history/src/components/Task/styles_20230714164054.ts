@@ -1,21 +1,16 @@
 import styled from 'styled-components'
 
-interface DoneProps {
+interface DoneButtonProps {
   isDone: boolean
 }
 
-export const TaskContainer = styled.div<DoneProps>`
+export const TaskContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   padding: 1rem;
   border-radius: 8px;
-  border: ${(props) =>
-    props.isDone === true
-      ? `1px solid ${props.theme['gray-400']}`
-      : `1px solid ${props.theme['gray-500']}`};
-
-  text-decoration: ${(props) => (props.isDone === true ? 'line-through' : ' ')};
+  border: 1px solid ${(props) => props.theme['gray-400']};
 
   & + div {
     margin-top: 0.75rem;
@@ -44,14 +39,13 @@ export const TrashButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-
   &:hover {
     background: ${(props) => props.theme['gray-400']};
     color: ${(props) => props.theme['red-500']};
     transition: all 0.1;
   }
 `
-export const DoneButton = styled.button<DoneProps>`
+export const DoneButton = styled.button<DoneButtonProps>`
   box-sizing: border-box;
   width: 1.25rem;
   height: 1.25rem;
@@ -62,8 +56,8 @@ export const DoneButton = styled.button<DoneProps>`
     props.isDone === true ? props.theme['purple-300'] : 'transparent'};
   border: ${(props) =>
     props.isDone === true
-      ? `1px solid ${props.theme['purple-300']}`
-      : `1px solid ${props.theme['blue-300']}`};
+      ? props.theme['purple-300']
+      : `1px solid ${(props) => props.theme['blue-300']};`};
   border-radius: 9999px;
   cursor: pointer;
 
